@@ -1,0 +1,8 @@
+Flask-RESTful
+Flask-JWT-Extended
+Flask-SQLAlchemy
+flask_marshmallow
+marshmallow-sqlalchemy
+flask-migrate
+python-dotenv
+flask-cors
