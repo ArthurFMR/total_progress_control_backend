@@ -6,3 +6,4 @@ marshmallow-sqlalchemy
 flask-migrate
 python-dotenv
 flask-cors
+uwsgi
