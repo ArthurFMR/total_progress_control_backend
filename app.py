@@ -20,11 +20,12 @@ from resources.item import Item, Items, CreateItem
 app = Flask(__name__)
 load_dotenv(".env")
 
-app.config.from_object("default_config")
-app.config.from_envvar("APPLICATION_SETTINGS")
 
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 app.config['JWT_BLACKLIST_ENABLED'] = True
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JWT_BLACKLIST_TOKEN_CHECKS'] = ['access', 'refresh']
+app.secret_key = "b'f1afa23342b5ef17079a34c76e1ae22a51dd475669b706f620489a481c35'"
 
 api = Api(app)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
