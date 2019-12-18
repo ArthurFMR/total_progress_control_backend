@@ -28,7 +28,7 @@ app.config['JWT_BLACKLIST_TOKEN_CHECKS'] = ['access', 'refresh']
 app.secret_key = "b'f1afa23342b5ef17079a34c76e1ae22a51dd475669b706f620489a481c35'"
 
 api = Api(app)
-#cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 jwt = JWTManager(app)
 @app.before_first_request
