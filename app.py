@@ -18,8 +18,6 @@ from resources.item import Item, Items, CreateItem
 
 
 app = Flask(__name__)
-load_dotenv(".env")
-
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 app.config['JWT_BLACKLIST_ENABLED'] = True
@@ -31,9 +29,6 @@ api = Api(app)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 jwt = JWTManager(app)
-@app.before_first_request
-def create_tables():
-    db.create_all()
 
 @app.errorhandler(ValidationError)
 def handle_marshmallow_validation(err):
